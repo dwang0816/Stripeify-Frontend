@@ -15,7 +15,7 @@ class Playlist extends React.Component {
         
         return (
             <div>
-                <div onClick={() => this.props.viewPlaylist(this.props.playlist)}>{this.props.playlist.name}</div>
+                <div onClick={() => this.props.viewPlaylist(this.props.playlist)}>{this.props.playlist.title}</div>
                 {/* <div></div> */}
             </div>
 
