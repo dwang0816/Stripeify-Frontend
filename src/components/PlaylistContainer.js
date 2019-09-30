@@ -33,7 +33,6 @@ class PlaylistContainer extends React.Component {
 
 
     render() {
-    console.log(this.state.pickedPlaylist)
     const allPlaylists = this.state.playlistCollection.map((playlist =>  { return <Playlist key={playlist.id} playlist={playlist} viewPlaylist={this.viewPlaylist} currentUser={this.props.currentUser}/> }))
 
         return (
