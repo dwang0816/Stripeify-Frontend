@@ -28,6 +28,7 @@ class Playlist extends React.Component {
 
     render() {
         return (
+
             <div className="playlist__title" onClick={() => this.props.viewPlaylist(this.props.playlist)}>
                 {this.renderInfo()}
                 <Votes votes={this.state} callback={this.state.uservotes ? this.removeVote : this.addVote}/>
