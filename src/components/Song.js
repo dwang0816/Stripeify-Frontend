@@ -1,9 +1,12 @@
 import React from "react";
 const Song = props => {
-    const { song } = props;
+    const { track } = props;
 
     return (
-        <div>Spec of the songs</div>
+        <div>
+            <li onClick={() => props.viewSong(track)}>{track.name} - {track.artist}</li>
+            {/* <div className="songSpec"> {props.songSpecs ? :null} </div> */}
+        </div>
     )
 }
 

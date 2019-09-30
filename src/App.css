@@ -10,3 +10,16 @@
   /* border-style: solid; */
   
 }
+
+.playlist__title{
+  border: 1px solid #000;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+.playlist__title:hover{
+  border: 1px solid #212121;
+  box-shadow: -3px 3px 6px 0px #212121;
+  transform: translateX(3px)
+}

@@ -8,7 +8,6 @@ class PlaylistContainer extends React.Component {
         playlistCollection: [],
         showSpecs: false,
         pickedPlaylist: {},
-
     }
 
     // populate this with playlist objects
@@ -20,9 +19,14 @@ class PlaylistContainer extends React.Component {
 
     // fetch the clicked object
     viewPlaylist = (Obj) => {
-        fetch(`http://localhost:3000/api/v1/playlists/${Obj.id}`)
-        .then(res => res.json())
-        .then(obj => this.setState({showSpecs: true, pickedPlaylist: obj}))
+        // fetch(`http://localhost:3000/api/v1/playlists/${Obj.id}`)
+        // .then(res => res.json())
+        // .then(obj => this.setState({showSpecs: true, pickedPlaylist: obj}))
+
+        this.setState({
+            showSpecs: true,
+            pickedPlaylist: Obj
+        })
     }
 
     hideSpecs = () => {
@@ -38,7 +42,10 @@ class PlaylistContainer extends React.Component {
     const allPlaylists = this.state.playlistCollection.map((playlist =>  { return <Playlist key={playlist.id} playlist={playlist} viewPlaylist={this.viewPlaylist}/> }))
         return (
             <div className="container"> 
-                <div className="list"> {allPlaylists} </div>
+                <div className="list"> 
+                    <div className="playlist__title"><h2> + Add New Playlist </h2></div>
+                    {allPlaylists} 
+                </div>
                 <div className="spec"> {this.state.showSpecs ? <SongContainer hideSpecs={this.hideSpecs} pickedPlaylist={this.state.pickedPlaylist}/>:null} </div>
             </div>
             
