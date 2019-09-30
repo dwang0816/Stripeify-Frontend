@@ -19,10 +19,6 @@ class PlaylistContainer extends React.Component {
 
     // fetch the clicked object
     viewPlaylist = (Obj) => {
-        // fetch(`http://localhost:3000/api/v1/playlists/${Obj.id}`)
-        // .then(res => res.json())
-        // .then(obj => this.setState({showSpecs: true, pickedPlaylist: obj}))
-
         this.setState({
             showSpecs: true,
             pickedPlaylist: Obj
@@ -37,9 +33,9 @@ class PlaylistContainer extends React.Component {
 
 
     render() {
-        // const {showSpecs} = this.state
     console.log(this.state.pickedPlaylist)
-    const allPlaylists = this.state.playlistCollection.map((playlist =>  { return <Playlist key={playlist.id} playlist={playlist} viewPlaylist={this.viewPlaylist}/> }))
+    const allPlaylists = this.state.playlistCollection.map((playlist =>  { return <Playlist key={playlist.id} playlist={playlist} viewPlaylist={this.viewPlaylist} currentUser={this.props.currentUser}/> }))
+
         return (
             <div className="container"> 
                 <div className="list"> 
