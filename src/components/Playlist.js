@@ -1,11 +1,23 @@
 import React from 'react'
+import Votes from './Votes'
 
 class Playlist extends React.Component {
 
-    // state = {
-    //     showInfo: false
-    // };
+    state = {
+        votes: this.props.playlist.votes,
+        upvotes: this.props.playlist.votes.filter( v => v.upvote ),
+        downvotes: this.props.playlist.votes.filter( v => !v.upvote ),
+        uservotes: this.props.playlist.votes.filter( v => v.user_id === this.props.currentUser.id)[0]
+    }
     
+    addVote = (type) => {
+        console.log("adding a vote", type)
+    }
+
+    removeVote = (type) => {
+        console.log("removing vote", type)
+    }
+
     renderInfo = () => {
         if (this.props.playlist){
             return(<><h2>{this.props.playlist.title}</h2>
@@ -13,22 +25,12 @@ class Playlist extends React.Component {
             <p>{this.props.playlist.tracks.length} tracks</p></>)
         }
     }
-    
-    renderVotes = () => {
-        let votes = this.props.playlist.votes.length
-        let upvotes = this.props.playlist.votes.filter( vote => vote.upvote).length
-        // Working on this now
-    }
-    
-    render() {
 
-        
+    render() {
         return (
             <div className="playlist__title" onClick={() => this.props.viewPlaylist(this.props.playlist)}>
                 {this.renderInfo()}
-            <div className="votes__list">
-                {this.renderVotes()}
-            </div>
+                <Votes votes={this.state} callback={this.state.uservotes ? this.removeVote : this.addVote}/>
             </div>
 
             
