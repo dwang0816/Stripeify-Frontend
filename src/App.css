@@ -1,3 +1,7 @@
+/* $black=#080F0F
+$blue=#2978A0
+$light-blue=#4281A4 */
+
 .container {
   display: grid;
   grid-template-columns: 50% 50%
