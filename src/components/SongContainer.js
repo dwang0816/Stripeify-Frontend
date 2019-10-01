@@ -25,6 +25,7 @@ class SongContainer extends React.Component {
     }
 
     render(){
+        // console.log(this.state.pickedSong)
         return (
             <div>
                 <h2>{this.props.pickedPlaylist.title}</h2>
