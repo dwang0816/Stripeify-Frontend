@@ -11,10 +11,15 @@ $light-blue=#4281A4 */
   z-index: 120;
 }
 
-nav{
+.App > nav{
   text-align: center;
   background: #4281A4;
   height: 3vh;
+}
+
+.App > main {
+  position: relative;
+  z-index: 10;
 }
 .container {
   position: relative;
@@ -72,6 +77,29 @@ nav{
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.3;
+  opacity: 0.15;
 }
 
+.user_actions_navigation{
+  background: #2978A0;
+}
+
+.user_actions_navigation ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: #4281A4;
+  list-style: none;
+}
+
+.user_actions_navigation ul li{
+  width: calc(100% / 3);
+  
+}
+.user_actions_navigation ul li button{
+  padding: 5px;
+  margin: 0;
+  border: 1px solid #212121;
+  border-radius: 3px; 
+}
