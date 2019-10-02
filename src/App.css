@@ -49,14 +49,14 @@ $light-blue=#4281A4 */
 }
 
 .visualize{
-  background-image: url('http://placekitten.com/1000/1000');
+  /* background-image: url('http://placekitten.com/1000/1000');
   background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.3;
+  opacity: 0.3; */
 }
 .App{
   background-color: rgba(250,250,250);

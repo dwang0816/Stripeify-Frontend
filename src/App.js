@@ -3,7 +3,12 @@ import './App.css';
 import PlaylistContainer from './components/PlaylistContainer'
 import Navigation from './components/Navigation'
 import NewPlaylist from './components/NewPlaylist'
+// import AudioSpectrum from './components/AudioSpectrum'
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
+
+
+
+
 class App extends React.Component{
   state = {
     currentUser : {
@@ -14,6 +19,12 @@ class App extends React.Component{
     searchTerm: '',
     sortTerm: '',
   }
+
+
+
+
+
+  
 
   handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase()
@@ -58,12 +69,23 @@ class App extends React.Component{
     fetch("http://localhost:3000/api/v1/playlists")
     .then(res => res.json())
     .then(json => this.setState({playlistCollection: json}))
+
+
   }
 
+
+
+
+
+
+
   render(){
+
+
     return (
       <>
-      <div className="visualize"></div>
+      <div>
+      </div>
       <div className="App">
       <Navigation currentUser={this.state.currentUser}/> 
         <Switch>
