@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import PlaylistContainer from './components/PlaylistContainer'
 import Navigation from './components/Navigation'
-
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
 class App extends React.Component{
   state = {
     currentUser : {
@@ -35,14 +35,19 @@ class App extends React.Component{
     return (
       <div className="App">
       <Navigation currentUser={this.state.currentUser}/> 
-      
-      <PlaylistContainer 
-      currentUser={this.state.currentUser} 
-      playlistCollection={this.state.playlistCollection} 
-      searchTerm={this.state.searchTerm} 
-      sortTerm={this.state.sortTerm} 
-      handleSearch={this.handleSearch} 
-      handleSort={this.handleSort}/>
+      <Router>
+        <Switch>
+          <Route path='/' exact render={ () => 
+          ( <PlaylistContainer 
+              currentUser={this.state.currentUser} 
+              playlistCollection={this.state.playlistCollection} 
+              searchTerm={this.state.searchTerm} 
+              sortTerm={this.state.sortTerm} 
+              handleSearch={this.handleSearch} 
+              handleSort={this.handleSort}/>) }/>
+          {/* <Route path="/new" component = { NewPlaylist } /> */}
+        </Switch>
+      </Router>
       </div>
     )
   }
