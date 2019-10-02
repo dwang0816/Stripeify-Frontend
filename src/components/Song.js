@@ -5,7 +5,6 @@ const Song = props => {
     return (
         <div>
             <li onClick={() => props.viewSong(track)}>{track.name} - {track.artist}</li>
-            {/* <div className="songSpec"> {props.songSpecs ? :null} </div> */}
         </div>
     )
 }

@@ -25,6 +25,14 @@ class PlaylistContainer extends React.Component {
         })
     }
 
+    deletePlaylist = (playlist) => {
+        this.setState({
+            showSpecs: false,
+            pickedPlaylist: {}
+        })
+        this.props.deletePlaylist(playlist)
+    }
+
     
     render() {
         let displayedPlaylists = this.props.playlistCollection
@@ -43,7 +51,6 @@ class PlaylistContainer extends React.Component {
         const allPlaylists = displayedPlaylists.map((playlist =>  { return <Playlist key={playlist.id} playlist={playlist} viewPlaylist={this.viewPlaylist} currentUser={this.props.currentUser}/> }))
         return (
             <div className="container"> 
-                {/* <div>sort, filter, search</div> */}
                 <div className="list"> 
                     <div>
                         <SearchBar 
@@ -56,7 +63,7 @@ class PlaylistContainer extends React.Component {
                     <Link to="/newplaylist"> <div className="playlist__title"><h2> + Add New Playlist </h2></div> </Link>
                     {allPlaylists} 
                 </div>
-                <div className="spec"> {this.state.showSpecs ? <SongContainer hideSpecs={this.hideSpecs} pickedPlaylist={this.state.pickedPlaylist}/>:null} </div>
+                <div className="spec"> {this.state.showSpecs ? <SongContainer hideSpecs={this.hideSpecs} pickedPlaylist={this.state.pickedPlaylist} currentUser={this.props.currentUser} deletePlaylist={this.deletePlaylist}/>:null} </div>
             </div>
             
         )
