@@ -11,13 +11,6 @@ class PlaylistContainer extends React.Component {
         pickedPlaylist: {},
     }
 
-    // populate this with playlist objects
-    // componentDidMount(){
-    //     fetch("http://localhost:3000/api/v1/playlists")
-    //     .then(res => res.json())
-    //     .then(json => this.setState({playlistCollection: json}))
-    // }
-
     // fetch the clicked object
     viewPlaylist = (Obj) => {
         this.setState({
@@ -32,16 +25,6 @@ class PlaylistContainer extends React.Component {
         })
     }
 
-    // handleSort = (sortValue) => {
-    //     this.setState({
-    //         sortTerm: sortValue
-    //     })
-    // }
-
-    // handleSearch = (e) => {
-    //     const searchTerm = e.target.value.toLowerCase()
-    //     this.setState({ searchTerm: searchTerm})
-    // }
     
     render() {
         let displayedPlaylists = this.props.playlistCollection
