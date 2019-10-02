@@ -81,8 +81,6 @@ class App extends React.Component{
               handleSort={this.handleSort}/>) }/>
           <Route path="/newplaylist" exact render={() => 
             ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist} {...this.props}/>) }/>
-
-          {/* <Route path="/new" component = { NewPlaylist } /> */}
         </Switch>
       </div>
     )
