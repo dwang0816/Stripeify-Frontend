@@ -35,6 +35,7 @@ class App extends React.Component{
     return (
       <div className="App">
       <Navigation currentUser={this.state.currentUser}/> 
+      
       <PlaylistContainer 
       currentUser={this.state.currentUser} 
       playlistCollection={this.state.playlistCollection} 
