@@ -2,6 +2,7 @@ import React from 'react'
 import Playlist from './Playlist'
 import SongContainer from './SongContainer'
 import SearchBar from './SearchBar'
+import { Link } from 'react-router-dom'
 
 class PlaylistContainer extends React.Component {
 
@@ -69,7 +70,7 @@ class PlaylistContainer extends React.Component {
                             sortValue ={this.props.sortTerm}
                         />
                     </div>
-                    <div className="playlist__title"><h2> + Add New Playlist </h2></div>
+                    <Link to="/newplaylist"> <div className="playlist__title"><h2> + Add New Playlist </h2></div> </Link>
                     {allPlaylists} 
                 </div>
                 <div className="spec"> {this.state.showSpecs ? <SongContainer hideSpecs={this.hideSpecs} pickedPlaylist={this.state.pickedPlaylist}/>:null} </div>
