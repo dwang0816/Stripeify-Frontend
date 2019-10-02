@@ -3,7 +3,7 @@ import './App.css';
 import PlaylistContainer from './components/PlaylistContainer'
 import Navigation from './components/Navigation'
 import NewPlaylist from './components/NewPlaylist'
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
 class App extends React.Component{
   state = {
     currentUser : {
@@ -13,7 +13,6 @@ class App extends React.Component{
     playlistCollection: [],
     searchTerm: '',
     sortTerm: '',
-    redirect: false
   }
 
   handleSearch = (e) => {
@@ -49,11 +48,10 @@ class App extends React.Component{
             playlistCollection: [
                 ...this.state.playlistCollection,
                 data
-            ],
-            redirect: true
+            ]
         })
-        // history.push(`/`)
     })
+    .then( () => this.props.history.push('/') )
   }
 
   componentDidMount(){
@@ -62,12 +60,10 @@ class App extends React.Component{
     .then(json => this.setState({playlistCollection: json}))
   }
 
-  componentDidUpdate(){
-    return <Route path='/' render={() => (this.state.redirect ? <Redirect to='/'/> : null )}/>
-  }
-  
   render(){
     return (
+      <>
+      <div className="visualize"></div>
       <div className="App">
       <Navigation currentUser={this.state.currentUser}/> 
         <Switch>
@@ -80,12 +76,13 @@ class App extends React.Component{
               handleSearch={this.handleSearch} 
               handleSort={this.handleSort}/>) }/>
           <Route path="/newplaylist" exact render={() => 
-            ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist} {...this.props}/>) }/>
+            ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist}/>) }/>
         </Switch>
       </div>
+      </>
     )
   }
   
 }
 
-export default App;
+export default withRouter(App);
