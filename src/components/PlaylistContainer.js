@@ -43,7 +43,6 @@ class PlaylistContainer extends React.Component {
         const allPlaylists = displayedPlaylists.map((playlist =>  { return <Playlist key={playlist.id} playlist={playlist} viewPlaylist={this.viewPlaylist} currentUser={this.props.currentUser}/> }))
         return (
             <div className="container"> 
-                {/* <div>sort, filter, search</div> */}
                 <div className="list"> 
                     <div>
                         <SearchBar 

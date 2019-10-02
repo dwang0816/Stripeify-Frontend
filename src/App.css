@@ -1,18 +1,34 @@
 /* $black=#080F0F
 $blue=#2978A0
 $light-blue=#4281A4 */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+.App{
+  z-index: 120;
+}
+
+nav{
+  text-align: center;
+  background: #4281A4;
+  height: 3vh;
+}
 .container {
+  position: relative;
+  z-index: 10;
   display: grid;
-  grid-template-columns: 50% 50%
+  grid-template-columns: 50% 50%;
+  max-height: 97vh;
 }
 
 .list {
+  max-height: 97vh;
   overflow: scroll;
-  height: 1000px;
   padding: 30px;
   /* border-style: solid; */
-  
 }
 
 .playlist__title{
@@ -58,7 +74,4 @@ $light-blue=#4281A4 */
   height: 100vh;
   opacity: 0.3;
 }
-.App{
-  background-color: rgba(250,250,250);
-  z-index: 120;
-}
+

@@ -63,7 +63,6 @@ class App extends React.Component{
   render(){
     return (
       <>
-      <div className="visualize"></div>
       <div className="App">
       <Navigation currentUser={this.state.currentUser}/> 
         <Switch>
@@ -78,6 +77,7 @@ class App extends React.Component{
           <Route path="/newplaylist" exact render={() => 
             ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist}/>) }/>
         </Switch>
+        <div className="visualize"></div>
       </div>
       </>
     )
