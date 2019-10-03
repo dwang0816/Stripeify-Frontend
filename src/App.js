@@ -4,7 +4,7 @@ import PlaylistContainer from './components/PlaylistContainer'
 import Navigation from './components/Navigation'
 import NewPlaylist from './components/NewPlaylist'
 // import AudioSpectrum from './components/AudioSpectrum'
-import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 
 
 
@@ -18,6 +18,8 @@ class App extends React.Component{
     playlistCollection: [],
     searchTerm: '',
     sortTerm: '',
+    trackCollection: [],
+    tracksToBeAdded: []
   }
 
   handleSearch = (e) => {
@@ -31,8 +33,16 @@ class App extends React.Component{
     })
   }
 
+  handleCheckbox = (tracksToBeAdded) => {
+    this.setState({
+      tracksToBeAdded: tracksToBeAdded
+    })
+  }
   handleNewPlaylist = (e) => {
     let playlistName = e.target.playlistName.value
+    let tracksToBeAdded = e.target.tracksToBeAdded
+    let arr = [...tracksToBeAdded].filter( t => t.checked).map(t => t.value)
+
     e.preventDefault()
     let config = {
         method: 'POST',
@@ -42,7 +52,8 @@ class App extends React.Component{
         },
         body: JSON.stringify({
             'title': playlistName,
-            'user_id': this.state.currentUser.id 
+            'user_id': this.state.currentUser.id,
+            'tracks': arr
         })
     }
     e.target.reset()
@@ -55,9 +66,13 @@ class App extends React.Component{
                 data
             ]
         })
+
+        
+        
     })
     .then( () => this.props.history.push('/') )
   }
+
 
   deletePlaylist = (p) => {
     let playlist = p
@@ -74,30 +89,26 @@ class App extends React.Component{
   componentDidMount(){
     fetch("http://localhost:3000/api/v1/playlists")
     .then(res => res.json())
-    .then(json => this.setState({playlistCollection: json}))
+    .then(playlist => this.setState({playlistCollection: playlist}))
 
+    fetch("http://localhost:3000/api/v1/tracks")
+    .then(res => res.json())
+    .then(track => this.setState({trackCollection: track}))
 
+    // fetch(the tracks)
   }
 
-
-
-
-
-
-
   render(){
-
-
+    // console.log(this.state.trackCollection)
     return (
       <>
-
       <div>
       </div>
       <div className="App">
       <Navigation currentUser={this.state.currentUser}/> 
         <Switch>
           <Route path='/' exact render={ () => 
-          ( <PlaylistContainer 
+            (<PlaylistContainer 
               currentUser={this.state.currentUser} 
               playlistCollection={this.state.playlistCollection} 
               searchTerm={this.state.searchTerm} 
@@ -108,7 +119,7 @@ class App extends React.Component{
             />) 
           }/>
           <Route path="/newplaylist" exact render={() => 
-            ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist}/>)}/>
+            ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist} handleCheckbox={this.handleCheckbox} tracksToBeAdded={this.state.tracksToBeAdded} trackCollection={this.state.trackCollection} />)}/>
         </Switch>
         <div className="visualize"></div>
       </div>

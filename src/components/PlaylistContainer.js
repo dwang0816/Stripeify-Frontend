@@ -42,9 +42,9 @@ class PlaylistContainer extends React.Component {
         } 
         else if (this.props.sortTerm === 'Tracks') {
             // sort by Tracks
-            displayedPlaylists = displayedPlaylists.sort((a, b) => (a.tracks.length > b.tracks.length) ? 1 : -1)
+            displayedPlaylists = displayedPlaylists.sort((a, b) => (a.tracks.length < b.tracks.length) ? 1 : -1)
         } 
-        else {
+        if (this.props.searchTerm !== '') {
             displayedPlaylists = displayedPlaylists.filter(p => p.title.toLowerCase().includes(this.props.searchTerm ))
         }
         // Render the list of playlists
