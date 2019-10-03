@@ -29,11 +29,11 @@ class SongContainer extends React.Component {
         console.log(this.props.pickedPlaylist.user.id)
         return (
             <div className="playlist_song__container">
-                <h2>{this.props.pickedPlaylist.title}</h2>
-                <p>Created By: {this.props.pickedPlaylist.user.name}</p>
                 {this.props.pickedPlaylist.user.id === this.props.currentUser.id 
                     ? <UserActions playlist={this.props.pickedPlaylist} deletePlaylist={this.props.deletePlaylist}/>
                     : null}
+                <h2>{this.props.pickedPlaylist.title}</h2>
+                <p>Created By: {this.props.pickedPlaylist.user.name}</p>
                 <ul className="playlist_song___tracks">
                     {this.renderTracks()}
                 </ul>
