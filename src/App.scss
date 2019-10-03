@@ -12,6 +12,8 @@ $light-blue: #988AA5;
 
 .App{
   z-index: 120;
+  background-image: url('./background.gif');
+  background-size: cover;
   & > nav{
     text-align: center;
     background: $light-blue;
@@ -111,33 +113,117 @@ $light-blue: #988AA5;
 
 
 .visualize{
-  background-image: url('http://placekitten.com/1000/1000');
-  background-size: cover;
+  // background-image: url('./background.gif');
+  // background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.15;
 }
 
-.user_actions_navigation{
-  background: #2978A0;
+.playlist_song__container{
+  width: 70%;
+  padding: 2rem 0;
+  margin: 0 auto;
+  h2{
+    font-size: 2rem;
+    line-height: 2;
+  }
+  p{
+    margin: 0 0 1rem 0;
+  }
   ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: $light-blue;
     list-style: none;
-    li{
-      width: calc(100% / 3);
-      button{
-        padding: 5px;
-        margin: 0;
-        border: 1px solid #212121;
-        border-radius: 3px; 
+    div li{
+      padding: 1rem;
+      border: 1px solid #3A3A40;
+      cursor: pointer;
+      transition: all 300ms ease;
+      &:hover{
+        box-shadow: 0px 0px 5px 0px white;
+        transform: scale(1.01);
       }
     }
+  }
+  .user_actions_navigation{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button{
+      padding: 0.75rem;
+      border: 1px solid #212121;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: $light-blue; 
+    }
+  }
+  canvas{
+    max-width: 100%;
+  }
+}
+.newplaylist__container{
+  width: 70%;
+  min-height: 97vh;;
+  margin: 0 auto;
+  a{
+    display: block;
+    width: 200px;
+    font-size: 1.3rem;
+    line-height: 2;
+    padding: 0.5rem 0;
+    line-height: 2;
+    &:link{
+      color: white;
+      text-decoration: none;
+    }
+    &:visited{
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .newplaylist__form{
+    display: flex;
+    flex-direction: column;
+    label[for="playlistName"]{
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: $light-blue;
+    }
+    input[name="playlistName"]{
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      border: 1px solid $black-main;
+      border-radius: 0.5rem;
+    }
+    ul{
+      margin: 1rem 0;
+      border: 1px solid $black-main;
+      height: 60vh;
+      overflow-y: scroll;
+      background: transparentize($light-blue, 0.5);
+      div label{
+        display: flex;
+        flex-direction: row;
+        font-size: 1.15rem;
+        line-height: 1.5;
+        margin: 0.5rem 0;
+        input{
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  input[type="submit"]{
+    padding: 0.75rem;
+    font-size: 1.15rem;
+    width: 40%;
+    margin: 0 auto;
+    border: 1px solid $black-main;
+    border-radius: 0.5rem;
+    background: $light-blue;
+  }
   }
 }

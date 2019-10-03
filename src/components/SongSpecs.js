@@ -11,16 +11,15 @@ class SongSpecs extends React.Component {
     render(){
     return (
         <div>
-            <strong className="songSpec"> {this.props.track.name} </strong>
             <div> 
             {/* <audio src={this.props.track.preview} controls></audio> */}
 
                     {/* <header name = "Access-Control-Allow-Origin" value = "*" />  */}
                     <div className="card">
                     {/* {
-                    this.state.audioStatus2 === 'PAUSED' ? (
+                        this.state.audioStatus2 === 'PAUSED' ? (
                         <i onClick={this.play2} className="iconfont icon-play"></i>
-                    ) : <i onClick={this.pause2} className="iconfont icon-pause"></i>
+                        ) : <i onClick={this.pause2} className="iconfont icon-pause"></i>
                     }<br/> */}
                     <audio id="audio-element2"
                     // preload="true"
@@ -53,6 +52,7 @@ class SongSpecs extends React.Component {
                     gap={1}
                     />
                     </div>
+                    <h3><strong className="songSpec"> {this.props.track.name} </strong></h3>
             </div>
         </div>
     )

@@ -24,9 +24,9 @@ export default class NewPlaylist extends React.Component {
         })
         // console.log(tracks)
         return(
-            <main>
+            <main className="newplaylist__container">
                 <Link to="/"> ← Back Home</Link>
-                <form onSubmit={(e) => this.props.handleSubmit(e)}>
+                <form onSubmit={(e) => this.props.handleSubmit(e)} className="newplaylist__form">
                     <label htmlFor="playlistName">Playlist Name</label>
                     <input type="text" name="playlistName" id="playlistName"/>
                     <ul>
