@@ -75,22 +75,11 @@ class App extends React.Component{
     fetch("http://localhost:3000/api/v1/playlists")
     .then(res => res.json())
     .then(json => this.setState({playlistCollection: json}))
-
-
   }
 
-
-
-
-
-
-
   render(){
-
-
     return (
       <>
-
       <div>
       </div>
       <div className="App">
