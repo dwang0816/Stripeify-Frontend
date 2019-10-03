@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import PlaylistContainer from './components/PlaylistContainer'
 import Navigation from './components/Navigation'
 import NewPlaylist from './components/NewPlaylist'
