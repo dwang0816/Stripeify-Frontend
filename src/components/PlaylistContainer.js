@@ -60,7 +60,7 @@ class PlaylistContainer extends React.Component {
                             sortValue ={this.props.sortTerm}
                         />
                     </div>
-                    <Link to="/newplaylist"> <div className="playlist__title"><h2> + Add New Playlist </h2></div> </Link>
+                    <Link to="/newplaylist"> <div className="playlist__title playlist__new"><h2> + Add New Playlist </h2></div> </Link>
                     {allPlaylists} 
                 </div>
                 <div className="spec"> {this.state.showSpecs ? <SongContainer hideSpecs={this.hideSpecs} pickedPlaylist={this.state.pickedPlaylist} currentUser={this.props.currentUser} deletePlaylist={this.deletePlaylist}/>:null} </div>
