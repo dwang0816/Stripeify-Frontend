@@ -11,7 +11,7 @@ class SongSpecs extends React.Component {
     render(){
     return (
         <div>
-            <div className="songSpec"> {this.props.track.name} </div>
+            <strong className="songSpec"> {this.props.track.name} </strong>
             <div> 
             {/* <audio src={this.props.track.preview} controls></audio> */}
 
@@ -36,7 +36,7 @@ class SongSpecs extends React.Component {
                     <AudioSpectrum
                     
                     height={200}
-                    width={300}
+                    width={800}
                     audioId={'audio-element2'}
                     capColor={'purple'}
                     capHeight={2}
