@@ -3,6 +3,7 @@ import AudioSpectrum from "./AudioSpectrum"
 import '../css/iconfont.css'
 class SongSpecs extends React.Component {
 
+
     state = {
         audioStatus2: 'PAUSED'
     }

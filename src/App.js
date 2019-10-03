@@ -20,12 +20,6 @@ class App extends React.Component{
     sortTerm: '',
   }
 
-
-
-
-
-  
-
   handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase()
     this.setState({ searchTerm: searchTerm})
@@ -65,6 +59,18 @@ class App extends React.Component{
     .then( () => this.props.history.push('/') )
   }
 
+  deletePlaylist = (p) => {
+    let playlist = p
+    let filteredPlaylists = this.state.playlistCollection.filter( p => p.id !== playlist.id)
+    fetch(`http://localhost:3000/api/v1/playlists/${p.id}`, { method: 'DELETE', header: {'Content-Type' : 'application/json', 'Accept': 'application/json'}})
+    .then(resp => resp.json())
+    .then(
+      this.setState({
+        playlistCollection: filteredPlaylists
+      })
+    )
+  }
+
   componentDidMount(){
     fetch("http://localhost:3000/api/v1/playlists")
     .then(res => res.json())
@@ -84,6 +90,7 @@ class App extends React.Component{
 
     return (
       <>
+
       <div>
       </div>
       <div className="App">
@@ -96,10 +103,14 @@ class App extends React.Component{
               searchTerm={this.state.searchTerm} 
               sortTerm={this.state.sortTerm} 
               handleSearch={this.handleSearch} 
-              handleSort={this.handleSort}/>) }/>
+              handleSort={this.handleSort}
+              deletePlaylist={this.deletePlaylist}
+            />) 
+          }/>
           <Route path="/newplaylist" exact render={() => 
-            ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist}/>) }/>
+            ( <NewPlaylist currentUser={this.currentUser} handleSubmit={this.handleNewPlaylist}/>)}/>
         </Switch>
+        <div className="visualize"></div>
       </div>
       </>
     )

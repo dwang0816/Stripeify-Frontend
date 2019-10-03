@@ -1,6 +1,7 @@
 import React from "react";
 import Song from "./Song";
 import SongSpecs from "./SongSpecs";
+import UserActions from './UserActions'
 
 class SongContainer extends React.Component {
     state = {
@@ -25,18 +26,21 @@ class SongContainer extends React.Component {
     }
 
     render(){
-        // console.log(this.state.pickedSong)
+        console.log(this.props.pickedPlaylist.user.id)
         return (
-            <div>
+            <div className="playlist_song__container">
                 <h2>{this.props.pickedPlaylist.title}</h2>
                 <p>Created By: {this.props.pickedPlaylist.user.name}</p>
-                <ul className="tracks-list">
+                {this.props.pickedPlaylist.user.id === this.props.currentUser.id 
+                    ? <UserActions playlist={this.props.pickedPlaylist} deletePlaylist={this.props.deletePlaylist}/>
+                    : null}
+                <ul className="playlist_song___tracks">
                     {this.renderTracks()}
                 </ul>
                 <div>
                     {
-                    this.state.songSpecs ? 
-                    <SongSpecs track ={this.state.pickedSong} /> 
+                    this.state.songSpecs 
+                    ? <SongSpecs track ={this.state.pickedSong} /> 
                     : null
                     }
                 </div>
