@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Stripeify 🎵 🎧</h1>
 
-## Available Scripts
+<div align="center">
+  A <code>React.js</code> web app for listening and voting on playlists created by users.
+</div>
 
-In the project directory, you can run:
+<div align="center">
+  <sub>Built with ☕️ by
+  <a href="https://github.com/janetmndz">Janet Mendez</a> and
+  <a href="https://github.com/dwang0816"> Dennis Wang</a>
+  </sub>
+</div>
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+This React.js app was designed for users to create and vote on playlists using preloaded songs from the Spotify API. Upon clicking on selected song, Users are able to listen and see an audio visualization of the song being played.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Tech Stack
+This web app makes use of the following:
 
-### `npm test`
+**Backend**
+- Ruby [2.6.1]
+- Rails [~> 5.2.3] - MVC web framework used as an API
+- PostgreSQL [>= 0.18, < 2.0] - Database
+- Figaro - Rails gem for securing API Keys
+- Active Model Serializers - Serializing API routes to JSON
+- RSpotify - Ruby Spotify API Wrapper
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Front End**
+- React.js
+- React Router - Declarative Routing
+- SCSS - CSS pre-processor
+- Web Audio API - audio visualization
 
-### `npm run build`
+## Prerequisites
+Before you begin, ensure you have installed the latest version of:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [**Ruby**](https://www.ruby-lang.org/en/)
+- [**Rails**](https://rubyonrails.org/)
+- [**PostgreSQL**](https://www.postgresql.org/)
+- [**Node.js and npm**](https://nodejs.org/en/)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+This web app uses the following API keys from:
+- [**Spotify**](https://developer.spotify.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installing
+*For information on Backend Installation please click here: [Stripeify Backend](https://github.com/janetmndz/stripeify-backend)*
 
-### `npm run eject`
+**Frontend Installation:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Clone this repo to your local machine `git clone <this-repo-url>`
+- `cd` to frontend directory
+- Ensure your Backend API is running at `http://localhost:3000/api/v1/`
+- run `npm install` to install all dependencies
+- run `npm start` to start server
+- When prompted, ensure Frontend is running at `http://localhost:3001`
