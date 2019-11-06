@@ -35,7 +35,7 @@ class SongSpecs extends React.Component {
                     <AudioSpectrum
                     
                     height={200}
-                    width={800}
+                    width={920}
                     audioId={'audio-element2'}
                     capColor={'purple'}
                     capHeight={2}
