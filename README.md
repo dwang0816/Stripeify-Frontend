@@ -13,6 +13,8 @@
 
 <br />
 
+![](stripeify.gif)
+
 ## Features
 This React.js app was designed for users to create and vote on playlists using preloaded songs from the Spotify API. Upon clicking on selected song, Users are able to listen and see an audio visualization of the song being played.
 
